@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online status</title>
+  <style>
+    .online {
+      color: green;
+    }
+    .offline {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="status"></div>
+
+  <script>
+    const dom = document.querySelector('.status')
+    const onlineStr = '<h1 class="online">Online</h1>'
+    const offlineStr = '<h1 class="offline">Offline</h1>'
+
+    if (navigator.onLine) dom.innerHTML = onlineStr
+    else dom.innerHTML = offlineStr
+
+    window.addEventListener('offline', () => {
+      dom.innerHTML = offlineStr
+    })
+    window.addEventListener('online', () => {
+      dom.innerHTML = onlineStr
+    });
+  </script>
+</body>
+</html>
